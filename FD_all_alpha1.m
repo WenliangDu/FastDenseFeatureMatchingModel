@@ -7,7 +7,7 @@ ThresholdS = 10;
 PeakThresh = 0;
 EdgeThresh = 40;
 
-method = 5;
+method = 3;
 % method 1: LLTA
 % method 2: LLTR
 % method 3: LLTV
@@ -28,7 +28,7 @@ Location2 = validBlobs2.Location;
 
 %% FD feature matching
 t1 = clock;
-[indexPairsPar,RecordIndies,BestInliersDifferSTD,tform1,tform2,IndicesInitialRANSAC,indexPairsInitialRANSAC,inliersInitialRANSAC] = ParFeatureMatching_alpha3(features1,features2,validBlobs1,validBlobs2,I2,ThresholdS);
+[indexPairsPar,RecordIndies,BestInliersDifferSTD,tform1,tform2,IndicesInitialRANSAC,indexPairsInitialRANSAC,inliersInitialRANSAC] = ParFeatureMatching_alpha4(features1,features2,validBlobs1,validBlobs2,I2,ThresholdS);
 inliersPar = ParFeatureMatching_RemoveOutliers_alpha2_github(Location1,Location2,indexPairsPar,RecordIndies,method);
 t2 = clock;
 FDMatchingTime = etime(t2,t1);
@@ -39,7 +39,7 @@ matchedPoints2 = validBlobs2(indexPairsPar(inliersPar,2),:);
 figure,showMatchedFeatures(I1, I2, matchedPoints1, matchedPoints2);
 
 %% DTM
-%ShowDisparity_alpha3(I1, I2, tform1, tform2,inliersPar,indexPairsPar,Location1,Location2);
+ShowDisparity_alpha3(I1, I2, tform1, tform2,inliersPar,indexPairsPar,Location1,Location2);
 
 
 
