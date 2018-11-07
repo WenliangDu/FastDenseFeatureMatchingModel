@@ -1,5 +1,5 @@
 % please decompress the vlfeat-0.9.20.rar firstly
-%run('vlfeat-0.9.20/toolbox/vl_setup')
+run('vlfeat-0.9.20/toolbox/vl_setup')
 addpath(genpath('OthersAlgorithms/LLT_up/'));
 addpath(genpath('OthersAlgorithms/WGTM/'));
 
